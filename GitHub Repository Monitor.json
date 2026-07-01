@@ -1,0 +1,141 @@
+{
+  "name": "GitHub Repository Monitor",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4e96e8ef-51aa-4253-ad98-ab8ee3507efd",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/repos/n8n-io/n8n",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "8d9aab28-d2e1-49be-85f0-c5b7bb698ef8",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "34df2b5b-2609-4486-b268-cc5bbc3df26e",
+              "name": "message",
+              "value": "=📦 GitHub Repository Report  \n📁 Repository: {{$json.full_name}}  \n📝 Description: {{$json.description}}  \n⭐ Stars: {{$json.stargazers_count}}  \n🍴 Forks: {{$json.forks_count}}  \n👀 Watchers: {{$json.watchers_count}}  \n🐞 Open Issues: {{$json.open_issues_count}}  \n🌿 Default Branch: {{$json.default_branch}}  \n🔗 Repository: {{$json.html_url}}  \n📅 Last Updated: {{$json.updated_at}}  \n🤖 Generated automatically with n8n.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "315b0d5b-b13f-4a87-aa59-de02a05fb5d9",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "chatId": "5518864435",
+        "text": "={{ $json.message }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        624,
+        0
+      ],
+      "id": "68b233d8-7ab0-422a-950e-42844b99596f",
+      "name": "Send a text message",
+      "webhookId": "6312b1be-ab7a-4584-ab02-2d47d9ad7fd2",
+      "credentials": {
+        "telegramApi": {
+          "id": "undq2hvE0125iRba",
+          "name": "GitHub Repository Monitor"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "timezone": "Asia/Manila",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "2191b662-5ddb-467d-8331-c6163d3f37db",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8109642ab6846a9cf1618de304921f5663481ec8cdaee6a52dd360d6de75a743"
+  },
+  "id": "niowj84NYyotfT8M",
+  "tags": []
+}
