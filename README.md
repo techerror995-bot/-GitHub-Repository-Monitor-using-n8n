@@ -1,45 +1,24 @@
 # 📦 GitHub Repository Monitor using n8n
 
-An automated workflow built with **n8n** that monitors a GitHub repository using the GitHub REST API and sends repository statistics directly to **Telegram**.
+## 📌 Project Overview
 
-This project demonstrates API integration, scheduled automation, JSON parsing, data transformation, and Telegram bot notifications using only free services.
+GitHub Repository Monitor is an automated workflow built with **n8n**, the **GitHub REST API**, and **Telegram**. It periodically retrieves repository statistics, formats the data into a readable report, and sends updates directly to Telegram.
 
----
-
-## 📌 Overview
-
-This workflow automatically performs the following tasks:
-
-- Runs every day at a scheduled time.
-- Retrieves the latest repository information from GitHub.
-- Extracts useful repository statistics.
-- Formats the information into a readable report.
-- Sends the report directly to Telegram.
+Built as part of my **30-Day n8n Automation Portfolio**, this project demonstrates API integration, scheduled automation, JSON data processing, and real-time notifications using free services.
 
 ---
 
-## 🚀 Features
+## 🎯 Objectives
 
-- ⏰ Daily scheduled execution
-- 📦 GitHub repository monitoring
-- ⭐ Displays repository statistics
-- 📲 Telegram notification
-- 🌐 Free GitHub REST API
-- 🔑 No API key required
-- 💯 Fully automated
+* Automate GitHub repository monitoring
+* Track repository statistics
+* Deliver scheduled Telegram updates
+* Demonstrate REST API integration
+* Build a portfolio-ready automation workflow
 
 ---
 
-## 🛠 Tech Stack
-
-- n8n
-- GitHub REST API
-- HTTP Request
-- Telegram Bot API
-
----
-
-## 📂 Workflow
+## 🏗️ Workflow Architecture
 
 ```text
 Schedule Trigger
@@ -56,11 +35,11 @@ Telegram
 
 ---
 
-## ⚙️ Workflow Explanation
+## ⚙️ Workflow Implementation
 
 ### 1. Schedule Trigger
 
-Automatically runs the workflow every day at the configured time.
+Runs the workflow automatically at a scheduled interval.
 
 ---
 
@@ -68,65 +47,58 @@ Automatically runs the workflow every day at the configured time.
 
 Retrieves repository information from the GitHub REST API.
 
-**API Endpoint**
+Example endpoint:
 
 ```
 https://api.github.com/repos/n8n-io/n8n
 ```
 
-You can replace the repository with any public GitHub repository.
-
-Examples:
-
-```
-facebook/react
-
-microsoft/vscode
-
-laravel/laravel
-
-tensorflow/tensorflow
-```
-
-**Method**
-
-```
-GET
-```
-
-**Authentication**
-
-```
-None
-```
+You can replace it with any public GitHub repository.
 
 ---
 
 ### 3. Edit Fields (Set)
 
-Formats the API response into a professional repository report.
+Extracts and formats repository information, including:
 
-Example Output:
+* Repository Name
+* Description
+* Stars
+* Forks
+* Watchers
+* Open Issues
+* Default Branch
+* Repository URL
+* Last Updated
 
-```
+---
+
+### 4. Telegram
+
+Sends a formatted repository report directly to Telegram.
+
+Example:
+
+```text
 📦 GitHub Repository Report
 
 📁 Repository:
 n8n-io/n8n
 
-📝 Description:
-Fair-code workflow automation platform.
+⭐ Stars:
+127,532
 
-⭐ Stars: 127,532
-🍴 Forks: 38,450
-👀 Watchers: 127,532
-🐞 Open Issues: 915
+🍴 Forks:
+38,450
+
+👀 Watchers:
+127,532
+
+🐞 Open Issues:
+915
 
 🌿 Default Branch:
 master
-
-🔗 Repository:
-https://github.com/n8n-io/n8n
 
 📅 Last Updated:
 2026-07-01T03:20:00Z
@@ -136,23 +108,29 @@ https://github.com/n8n-io/n8n
 
 ---
 
-### 4. Telegram
+## 🛠️ Technologies Used
 
-Sends the formatted repository report directly to your Telegram account.
+* n8n
+* GitHub REST API
+* HTTP Request
+* Telegram Bot API
 
 ---
 
-## 📁 Project Structure
+## 📁 Repository Structure
 
-```
+```text
 GitHub-Repository-Monitor/
 │
 ├── README.md
 ├── workflow.json
-└── screenshots/
-    ├── workflow.png
-    ├── telegram-output.png
-    └── workflow-execution.png
+│
+├── screenshots/
+│   ├── workflow.png
+│   ├── telegram-output.png
+│   └── workflow-execution.png
+│
+└── assets/
 ```
 
 ---
@@ -161,76 +139,56 @@ GitHub-Repository-Monitor/
 
 Include the following screenshots:
 
-- Workflow Editor
-- Successful Workflow Execution
-- Telegram Output
-
-Example:
-
-```
-screenshots/
-    workflow.png
-    workflow-execution.png
-    telegram-output.png
-```
+* Complete Workflow
+* Workflow Execution
+* Telegram Output
 
 ---
 
-## 💡 Use Cases
+## 🚀 Key Features
 
-- Monitor your own GitHub repositories
-- Track open-source project statistics
-- Learn GitHub REST API integration
-- Receive repository updates automatically
-- Portfolio automation project
-
----
-
-## 🔮 Future Improvements
-
-- Monitor multiple repositories
-- Compare repository growth over time
-- Save statistics to Google Sheets
-- Notify when stars reach a milestone
-- Monitor new releases
-- Monitor new issues and pull requests
-- Send notifications to Discord or Slack
+* ✅ Scheduled Workflow Automation
+* ✅ GitHub REST API Integration
+* ✅ Repository Statistics Monitoring
+* ✅ Automated Telegram Notifications
+* ✅ JSON Data Processing
+* ✅ Fully Automated Workflow
+* ✅ Uses Free GitHub API
 
 ---
 
-## 📚 What I Learned
+## 🎓 Lessons Learned
 
-This project helped me gain hands-on experience with:
+Through this project, I gained experience in:
 
-- Workflow automation using n8n
-- GitHub REST API integration
-- HTTP Request node
-- JSON parsing
-- Data transformation
-- Telegram Bot integration
-- Scheduled workflows
-
----
-
-## 🏷 Skills Demonstrated
-
-- n8n
-- Workflow Automation
-- GitHub REST API
-- HTTP Request
-- REST API Integration
-- JSON Parsing
-- Data Transformation
-- Telegram Bot API
-- Scheduled Automation
-- No-Code / Low-Code Development
+* Building scheduled automation workflows
+* Integrating REST APIs with n8n
+* Processing JSON responses
+* Formatting API data for messaging
+* Automating Telegram notifications
+* Designing reliable monitoring workflows
 
 ---
 
-## 📄 License
+## 📈 Impact
 
-This project is licensed under the MIT License.
+This workflow automates GitHub repository monitoring by delivering up-to-date repository statistics directly to Telegram. It demonstrates how workflow automation can simplify API monitoring and reporting without requiring manual checks.
 
 ---
 
-⭐ If you found this project helpful, consider giving it a star!
+## 📜 License
+
+MIT License
+
+---
+
+## 👨‍💻 Author
+
+**Belio C. Sinangote**
+
+BS Information Technology Student
+Cebu Technological University (CTU)
+
+GitHub: [https://github.com/belioautomation](https://github.com/belioautomation)
+
+This project is part of my **30-Day n8n Automation Portfolio**, showcasing practical workflow automation using n8n, APIs, and automation best practices.
